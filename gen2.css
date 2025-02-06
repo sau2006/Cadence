@@ -1,0 +1,62 @@
+body {
+    background-image: url("images/genbg2final.jpeg");
+    background-size: cover;  
+    overflow: hidden;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.leftAlign {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 80vh;
+    text-align: left;
+    padding-left: 20px;
+    padding-top: 50px;
+}
+
+.vibe {
+    padding-left: 75px;
+    margin-top: 70px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+input[type="text"] {
+    width: 400px;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #d46060;
+    border-radius: 10px;
+    background-color: #ffdabc;
+    transition: border-color 0.3s;
+    height: 32px;
+}
+
+input[type="text"]:focus {
+    border-color: #9f5237;
+    outline: none;
+}
+
+.generateButton {
+    padding-left: 78px;
+    margin-top: 75px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 17px;
+    background-color:#6c1b1b;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #c56900;
+}
+
