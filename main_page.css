@@ -1,0 +1,65 @@
+body {
+    margin: 0;
+    scroll-behavior: smooth;
+}
+.screen {
+    height: 100vh;
+    width: 100%;
+    background-image: url('images/cadencempbg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+.title-container {
+    width: 80%;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title-image {
+    max-width: 80%;
+    height: auto;
+    display: block;
+}
+
+.gif-image {
+    max-width: 300px;
+    height: auto;
+    margin-top: 0px;
+    display: block;
+}
+.scroll-down {
+    position: absolute;
+    bottom: 30px;
+    font-size: 30px;
+    color: white;
+    text-decoration: none;
+    animation: bounce 1.5s infinite;
+}
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+}
+.about-container {
+    color: white;
+    font-size: 22px; 
+    max-width: 60%;
+    font-family: Verdana, Geneva, sans-serif;
+    font-weight: normal;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
