@@ -3,12 +3,12 @@ body {
     scroll-behavior: smooth;
 }
 .screen {
-    height: 100vh;
+    height: 157vh;
     width: 100%;
-    background-image: url('https://raw.githubusercontent.com/aditikar27/Cadence/ccdf7ca8471368be50e38539c2166dce3c2268d6/images/main_page_orange.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-image: url('https://raw.githubusercontent.com/aditikar27/Cadence/main/images/main_page_orange.jpg    ');
+    background-size: 100% auto;
+background-position: top center;
+background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
