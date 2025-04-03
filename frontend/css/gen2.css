@@ -11,6 +11,7 @@ body {
     overflow-x: hidden;
 }
 
+
 /* Left Align Section */
 .leftAlign {
     display: flex;
@@ -23,6 +24,7 @@ body {
     box-sizing: border-box;
 }
 
+
 /* Title Image */
 .leftAlign img {
     width: 80%;
@@ -31,12 +33,14 @@ body {
     margin-bottom: 15px;
 }
 
+
 /* Input Box */
 .vibe {
     margin-top: 20px;
     width: 90%;
     max-width: 360px;
 }
+
 
 input[type="text"] {
     width: 100%;
@@ -49,14 +53,26 @@ input[type="text"] {
     transition: all 0.3s;
     height: 40px;
 }
-
+.rightAlign {
+    width: 30%;  /* Reduce width so it doesn’t go out of frame */
+    position: absolute;  
+    left: 10%; /* Moves it left */
+    top: 50%; /* Moves it down to the center */
+    transform: translateY(-50%);
+}
 /* Generate Button */
 .generateButton {
     margin-top: 15px;
     width: 90%;
     max-width: 180px;
 }
-
+#playlistEmbed {
+    width: 300px; /* Make it smaller */
+    height: 200px; /* Adjust height */
+    border-radius: 12px;
+    transform: translate(180% , -165%) ;
+    /* transform: translateX(150%) ; */
+}
 button {
     width: 100%;
     padding: 12px;
@@ -72,20 +88,24 @@ button {
     transition: all 0.3s;
 }
 
+
 button:hover {
     background-color: #c56900;
     transform: scale(1.03);
 }
+
 
 /* Playlist Container */
 #playlistContainer {
     margin-top: 20px;
 }
 
+
 #playlistContainer h2 {
     font-size: 20px;
     color: #6c1b1b;
 }
+
 
 #playlistContainer a {
     display: block;
@@ -95,9 +115,11 @@ button:hover {
     font-size: 16px;
 }
 
+
 #playlistContainer a:hover {
     text-decoration: underline;
 }
+
 
 /* Responsive Styles */
 @media (max-width: 768px) {
@@ -105,15 +127,18 @@ button:hover {
         padding: 8% 0 0 5%;
     }
 
+
     .leftAlign img {
         width: 85%;
         max-width: 400px;
     }
 
+
     .vibe {
         margin-top: 15px;
         max-width: 320px;
     }
+
 
     .generateButton {
         margin-top: 10px;
@@ -121,24 +146,31 @@ button:hover {
     }
 }
 
+
 @media (max-width: 480px) {
     .leftAlign {
         padding: 10% 0 0 4%;
     }
+
 
     .leftAlign img {
         width: 90%;
         max-width: 300px;
     }
 
+
     input[type="text"] {
         font-size: 14px;
         height: 36px;
     }
 
+
     button {
         font-size: 15px;
         padding: 10px;
     }
+    
 }
+
+
 

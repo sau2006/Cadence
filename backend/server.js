@@ -6,6 +6,7 @@ import querystring from "querystring";
 import { Buffer } from "buffer";
 import path from "path";
 import { fileURLToPath } from "url";
+import fs from "fs";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -175,6 +176,24 @@ app.post("/generate-playlist", async (req, res) => {
     }
 });
 
+// 🔥 Retro Rewind Route (Fetches a classic song for today's date)
+app.get("/retro-rewind", (req, res) => {
+    try {
+        const data = JSON.parse(fs.readFileSync(path.join(__dirname, "retro_rewind.json"), "utf8"));
+        const today = new Date().toISOString().slice(5, 10); // "MM-DD" format
+
+        const songInfo = data[today];
+
+        if (songInfo) {
+            res.json({ success: true, song: songInfo.song, artist: songInfo.artist, year: songInfo.year });
+        } else {
+            res.json({ success: false, message: "No retro song found for today!" });
+        }
+    } catch (error) {
+        console.error("Error loading retro songs:", error);
+        res.status(500).json({ success: false, error: "Failed to load retro rewind songs." });
+    }
+});
 
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);

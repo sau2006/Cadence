@@ -3,29 +3,32 @@ body {
     scroll-behavior: smooth;
     background-color: orange;
 }
+
 .screen {
-    height: 157vh;
+    height: 153vh;
     width: 100%;
-    background-image: url('https://raw.githubusercontent.com/aditikar27/Cadence/main/images/main_page_orange.jpg    ');
+    background-image: url('https://raw.githubusercontent.com/aditikar27/Cadence/main/images/main_page_orange.jpg');
     background-size: 100% auto;
-background-position: top center;
-background-repeat: no-repeat;
+    background-position: top center;
+    background-repeat: no-repeat;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
     text-align: center;
+    align-items: center;
+    position: relative;
 }
+
 .title-container {
     width: 80%;
     position: absolute;
-    top: 20%;
+    top: 13%;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 }
 
 .title-image {
@@ -33,27 +36,68 @@ background-repeat: no-repeat;
     height: auto;
     display: block;
 }
+
 .gif-image {
     max-width: 250px;
     height: auto;
     margin-top: -50px;
     display: block;
 }
+
+/* Song of the Day */
+.song-container {
+    width: 60%;
+    margin-top: 120px; /* Increased margin to push it further down */
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    font-family: 'Verdana', Geneva, sans-serif;
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    line-height: 1.5;
+}
+
+/* Song Title Styling */
+.song-container .song-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #ffdd57;
+}
+
+.song-container .song-artist {
+    font-size: 22px;
+    color: white;
+    opacity: 0.9;
+}
+
+.song-container .song-year {
+    font-size: 18px;
+    color: #ffdd57;
+}
+
+/* Playlist Button */
 .playlist-link {
     margin-top: -30px;
-    font-size: 15px;
+    font-size: 20px;
     color: white;
     text-decoration: none;
     font-family: Verdana, Geneva, sans-serif;
     font-weight: bold;
     background: rgba(255, 255, 255, 0.2);
-    padding: 8px 15px;
+    padding: 15px 15px;
     border-radius: 10px;
     transition: background 0.3s ease-in-out;
+    
 }
+
 .playlist-link:hover {
     background: rgba(255, 255, 255, 0.4);
 }
+
+/* Scroll Down Animation */
 .scroll-down {
     position: absolute;
     bottom: 30px;
@@ -62,19 +106,51 @@ background-repeat: no-repeat;
     text-decoration: none;
     animation: bounce 1.5s infinite;
 }
+
 @keyframes bounce {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(10px); }
 }
-.about-container {
-    color: white;
-    font-size: 22px; 
-    max-width: 60%;
-    font-family: Verdana, Geneva, sans-serif;
-    font-weight: normal;
-    background: rgba(0, 0, 0, 0.4);
-    padding: 20px;
+
+/* About Us (Now a Footer) */
+
+.about-container{
+    width: 60%;
+    margin-top: 300px; /* Increased margin to push it further down */
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.2);
     border-radius: 15px;
     text-align: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    font-family: 'Verdana', Geneva, sans-serif;
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    line-height: 1.5;
 }
+
+.footer-container {
+    color: #5a3e2b;
+    text-align: center;
+    padding: 15px;
+    font-size: 30px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-container a {
+    color: #5a3e2b;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.footer-container a:hover {
+    color: #8b5e3c;
+}
+

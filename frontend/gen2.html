@@ -18,11 +18,12 @@
         <div class="generateButton">
             <button id="generateButton">Generate</button>
         </div>
-        <div id="playlistContainer"></div>
+        <div id="rightAlign">
+            <div id="playlistContainer"></div>
+        </div>
     </div>
 
     <script>
-        // Extract token from URL and store it
         const params = new URLSearchParams(window.location.hash.substring(1));
         const accessToken = params.get("access_token");
         const refreshToken = params.get("refresh_token");
@@ -40,7 +41,7 @@
                 return;
             }
 
-            const vibe = document.getElementById("vibeInput").value.trim(); // Trimmed input
+            const vibe = document.getElementById("vibeInput").value.trim();
             if (!vibe) {
                 alert("Please enter a vibe.");
                 return;
@@ -55,23 +56,23 @@
 
                 const data = await response.json();
                 if (data.success) {
-                    // document.getElementById("playlistContainer").innerHTML = `
-                        
-                    //     <a href="${data.playlistUrl}" target="_blank">Open Playlist on Spotify</a>
-                    //     <button id="saveButton">Save to Profile</button>
-                    // `;
+                    const playlistUrl = data.playlistUrl;
+                    const playlistId = playlistUrl.split("/playlist/")[1];
 
-                    // document.getElementById("saveButton").addEventListener("click", () => {
-                    //     savePlaylist(data.playlistUrl);
-                    // });
                     document.getElementById("playlistContainer").innerHTML = `
-    <button id="saveButton">Save & Open Playlist</button>
-`;
+                        <button id="previewButton">Show Preview</button>
+                        <iframe id="playlistEmbed" style="border-radius:12px; width:150%; height:352px; display:none;" 
+                            src="https://open.spotify.com/embed/playlist/${playlistId}?utm_source=generator" 
+                            frameBorder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
+                        </iframe>
+                    `;
 
-document.getElementById("saveButton").addEventListener("click", () => {
-    savePlaylist(data.playlistUrl);
-    window.open(data.playlistUrl, "_blank");
-});
+                    document.getElementById("previewButton").addEventListener("click", () => {
+                        document.getElementById("playlistEmbed").style.display = "block";
+                    });
+
+                    // Open playlist in new tab after generation
+                    window.open(playlistUrl, "_blank");
 
                 } else {
                     alert("Failed to generate playlist: " + data.error);
@@ -79,10 +80,6 @@ document.getElementById("saveButton").addEventListener("click", () => {
             } catch (error) {
                 alert("Error generating playlist. Please try again.");
             }
-        }
-
-        async function savePlaylist(url) {
-            alert("Playlist saved to your profile: " + url);
         }
 
         document.getElementById("generateButton").addEventListener("click", generatePlaylist);
