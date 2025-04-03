@@ -1,66 +1,144 @@
+/* Base Styles */
 body {
-    background-image: url("https://raw.githubusercontent.com/aditikar27/Cadence/main/images/generate.jpg");
-    background-size: cover;  
-    overflow: hidden;
-    height: 100%;
+    background-image: url("https://raw.githubusercontent.com/aditikar27/Cadence/main/images/genbg2final.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     margin: 0;
     padding: 0;
+    min-height: 100vh;
+    font-family: 'Calistoga', cursive;
+    overflow-x: hidden;
 }
 
+/* Left Align Section */
 .leftAlign {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    height: 80vh;
+    min-height: 80vh;
     text-align: left;
-    padding-left: 20px;
-    padding-top: 50px;
+    padding: 5% 0 0 5%;
+    box-sizing: border-box;
 }
 
+/* Title Image */
+.leftAlign img {
+    width: 80%;
+    max-width: 500px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+/* Input Box */
 .vibe {
-    padding-left: 75px;
-    margin-top: 70px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 20px;
+    width: 90%;
+    max-width: 360px;
 }
 
 input[type="text"] {
-    width: 400px;
+    width: 100%;
     padding: 10px;
     font-size: 16px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     border: 2px solid #d46060;
     border-radius: 10px;
     background-color: #ffdabc;
-    transition: border-color 0.3s;
-    height: 32px;
+    transition: all 0.3s;
+    height: 40px;
 }
 
-input[type="text"]:focus {
-    border-color: #9f5237;
-    outline: none;
-}
-
+/* Generate Button */
 .generateButton {
-    padding-left: 78px;
-    margin-top: 75px;
+    margin-top: 15px;
+    width: 90%;
+    max-width: 180px;
 }
 
 button {
-    padding: 10px 20px;
-    font-size: 17px;
-    background-color:#6c1b1b;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    margin-top: 15px;
+    /* width: 90%; */
+    max-width: 180px;
+    background-color: #6c1b1b;
     color: white;
     border: none;
     border-radius: 30px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: all 0.3s;
 }
 
 button:hover {
     background-color: #c56900;
+    transform: scale(1.03);
 }
 
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(10px); }
+/* Playlist Container */
+#playlistContainer {
+    margin-top: 20px;
 }
+
+#playlistContainer h2 {
+    font-size: 20px;
+    color: #6c1b1b;
+}
+
+#playlistContainer a {
+    display: block;
+    margin-top: 10px;
+    color: #c56900;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+#playlistContainer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .leftAlign {
+        padding: 8% 0 0 5%;
+    }
+
+    .leftAlign img {
+        width: 85%;
+        max-width: 400px;
+    }
+
+    .vibe {
+        margin-top: 15px;
+        max-width: 320px;
+    }
+
+    .generateButton {
+        margin-top: 10px;
+        max-width: 160px;
+    }
+}
+
+@media (max-width: 480px) {
+    .leftAlign {
+        padding: 10% 0 0 4%;
+    }
+
+    .leftAlign img {
+        width: 90%;
+        max-width: 300px;
+    }
+
+    input[type="text"] {
+        font-size: 14px;
+        height: 36px;
+    }
+
+    button {
+        font-size: 15px;
+        padding: 10px;
+    }
+}
+

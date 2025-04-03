@@ -1,6 +1,7 @@
 body {
     margin: 0;
     scroll-behavior: smooth;
+    background-color: orange;
 }
 .screen {
     height: 157vh;

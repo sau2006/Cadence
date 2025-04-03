@@ -12,8 +12,11 @@
             <img src="https://raw.githubusercontent.com/aditikar27/Cadence/main/images/cadencenobg.png" alt="Website Title" class="title-image">
             <img src="https://raw.githubusercontent.com/aditikar27/Cadence/main/images/gif_nobg.gif" alt="Casette" class="gif-image">
             
-            <a href="gen2.html" target="_blank" class="playlist-link">Generate your own playlist!</a>
-            <button id="loginButton">Login to Spotify</button>
+            <a href="#" id="playlistButton" class="playlist-link">Generate your own playlist!</a>
+
+
+
+
         </div>
         <a href="#about" class="scroll-down">▼</a>
     </section>
@@ -25,8 +28,8 @@
         </div>
     </section>
     <script>
-        document.getElementById("loginButton").addEventListener("click", () => {
-            window.location.href = "http://localhost:3002/login";
+        document.getElementById("playlistButton").addEventListener("click", () => {
+            window.location.href = "http://localhost:3002/login?redirect_uri=" + encodeURIComponent("http://localhost:3002/gen2.html");
         });
     </script>
 </body>
