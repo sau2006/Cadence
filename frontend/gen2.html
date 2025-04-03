@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playlist Generator</title>
+</head>
+<body>
+    <h1>Generate Your Playlist</h1>
+    <input type="text" id="vibeInput" placeholder="Enter your vibe">
+    <button id="generateButton">Generate Playlist</button>
+    <div id="playlistContainer"></div>
+
+    <script>
+        // Extract token from URL fragment and store it
+        const params = new URLSearchParams(window.location.hash.substring(1));
+        const accessToken = params.get("access_token");
+        const refreshToken = params.get("refresh_token");
+        console.log("at =" + accessToken);
+        console.log("rt =" + refreshToken);
+        if (accessToken) {
+            localStorage.setItem("spotify_token", accessToken);
+            localStorage.setItem("spotify_refresh_token", refreshToken);
+        }
+
+        async function generatePlaylist() {
+            const token = localStorage.getItem("spotify_token");
+            if (!token) {
+                alert("No valid token. Please log in.");
+                window.location.href = "http://localhost:3002/";
+                return;
+            }
+
+            const vibe = document.getElementById("vibeInput").value;
+            if (!vibe) {
+                alert("Please enter a vibe.");
+                return;
+            }
+
+            const response = await fetch("http://localhost:3002/generate-playlist", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ vibe, token }),
+            });
+
+            const data = await response.json();
+            if (data.success) {
+                document.getElementById("playlistContainer").innerHTML = `
+                    <h2>Generated Playlist</h2>
+                    <a href="${data.playlistUrl}" target="_blank">Open Playlist on Spotify</a>
+                    <button id="saveButton">Save to Profile</button>
+                `;
+
+                document.getElementById("saveButton").addEventListener("click", () => {
+                    savePlaylist(data.playlistUrl);
+                });
+            } else {
+                alert("Failed to generate playlist: " + data.error);
+            }
+        }
+
+        document.getElementById("generateButton").addEventListener("click", generatePlaylist);
+
+        async function savePlaylist(url) {
+            alert("Playlist saved to your profile: " + url);
+        }
+    </script>
+</body>
+</html>

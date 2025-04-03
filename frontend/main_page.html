@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome To Cadence</title>
+    <link rel="stylesheet" href="/css/main_page.css">
+</head>
+<body>
+    <section class="screen" id="home">
+        <div class="title-container">
+            <img src="https://raw.githubusercontent.com/aditikar27/Cadence/main/images/cadencenobg.png" alt="Website Title" class="title-image">
+            <img src="https://raw.githubusercontent.com/aditikar27/Cadence/main/images/gif_nobg.gif" alt="Casette" class="gif-image">
+            
+            <a href="gen2.html" target="_blank" class="playlist-link">Generate your own playlist!</a>
+            <button id="loginButton">Login to Spotify</button>
+        </div>
+        <a href="#about" class="scroll-down">▼</a>
+    </section>
+
+    <section class="screen" id="about">
+        <div class="about-container">
+            <h1>About Us</h1>
+            <p>Welcome to Cadence! We bring music and passion together...</p>
+        </div>
+    </section>
+    <script>
+        document.getElementById("loginButton").addEventListener("click", () => {
+            window.location.href = "http://localhost:3002/login";
+        });
+    </script>
+</body>
+</html>
