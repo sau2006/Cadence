@@ -14,7 +14,7 @@
             <a href="#" id="playlistButton" class="playlist-link">Generate your own playlist!</a>
             <div id="retroRewind" class="song-container">
                 <h2> Retro Rewind </h2>
-                <p id="retroSong">Fetching a classic hit...</p>
+                <p id="retroSong"></p>
             </div>
             
         </div>
@@ -41,7 +41,7 @@
 
     <script>
         document.getElementById("playlistButton").addEventListener("click", () => {
-            window.location.href = "http://localhost:3002/login?redirect_uri=" + encodeURIComponent("http://localhost:3002/gen2.html");
+            window.location.href = "http://localhost:3002/login?redirect_uri=" + encodeURIComponent("frontend/gen2.html");
         });
 
         async function fetchRetroRewind() {
