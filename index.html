@@ -1,1 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome To Cadence</title>
+    <link rel="stylesheet" href="/css/main_page.css">
+</head>
+<body>
+    <section class="screen" id="home">
+        <div class="title-container">
+            <img src="https://raw.githubusercontent.com/aditikar27/Cadence/main/images/cadencenobg.png" alt="Website Title" class="title-image">
+            <img src="https://raw.githubusercontent.com/aditikar27/Cadence/main/images/gif_nobg.gif" alt="Cassette" class="gif-image">
+            <a href="#" id="playlistButton" class="playlist-link">Generate your own playlist!</a>
+            <div id="retroRewind" class="song-container">
+                <h2> Retro Rewind </h2>
+                <p id="retroSong">Fetching a classic hit...</p>
+            </div>
+            
+        </div>
+        
+       
 
+        <a href="#about" class="scroll-down">▼</a>
+    </section>
+
+    <div class="screen" id="about">
+        <div class="about-container">
+            <h1>About Us</h1>
+            <p>Music is the soundtrack to our lives, and at Cadence, <br>we want to help you find the perfect song for every moment.<br> Whether you're looking to hype up your day or wind down after a long one,<br> our playlists are made to match your vibe.<br> Plus, we drop a fresh Song of the Day to keep things exciting. We’re just here to help you discover the music that makes you feel right.</p>
+        </div>
+    </div>
+    <div>
+        <div class="footer-container">
+            
+            <p>&copy; 2025 Cadence</p>
+        </div>
+    </div>
+    <link rel="stylesheet" href="footer.css">
+    
+
+    <script>
+        document.getElementById("playlistButton").addEventListener("click", () => {
+            window.location.href = "http://localhost:3002/login?redirect_uri=" + encodeURIComponent("http://localhost:3002/gen2.html");
+        });
+
+        async function fetchRetroRewind() {
+            try {
+                const response = await fetch("http://localhost:3002/retro-rewind");
+                const data = await response.json();
+
+                if (data.success) {
+                    document.getElementById("retroSong").innerHTML = 
+                        `On this day in <strong>${data.year}</strong>: <em>${data.song}</em> by <strong>${data.artist}</strong>!<p>dominated the charts! This powerful ballad, written by Jim Steinman, became an iconic anthem of love, longing, and dramatic passion. </p>`;
+                } else {
+                    document.getElementById("retroSong").textContent = "No retro song found for today!";
+                }
+            } catch (error) {
+                console.error("Error fetching Retro Rewind song:", error);
+            }
+        }
+
+        fetchRetroRewind();
+    </script>
+</body>
+</html>
